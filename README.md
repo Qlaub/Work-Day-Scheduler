@@ -9,7 +9,7 @@ Simply type into the colored boxes and then click the check mark to save. Past h
 ## Web Application
 [Click here to view](https://qlaub.github.io/Work-Day-Scheduler/)
 
-
+https://user-images.githubusercontent.com/89796902/158484769-0729922e-f6f5-4cb2-8cdf-570249008d67.mp4
 
 ## HTML/CSS/JS Contributions
 from Alex Glaubitz
