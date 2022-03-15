@@ -70,9 +70,16 @@ const updateHourColors = function() {
 }
 
 const updateHourData = function(event) {
+  //guard clause to save only if button element or span within button was clicked on
+  if (!$(event.target).hasClass('save')) return;
+
+  //get parent element
   const parentEl = $(event.target).closest('.row');
+  //get hour associated with text to save
   const hour = parentEl.children()[0].textContent;
+  //get text within textarea
   const userText = parentEl.children()[1].value;
+  //update correct hour within hourData array
   for (let index in hourData) {
     if (hourData[index].time === hour) {
       hourData[index].text = userText;
@@ -83,20 +90,32 @@ const updateHourData = function(event) {
 
 const saveData = function() {
   localStorage.setItem('data', JSON.stringify(hourData))
-  console.log("Data stored")
+  console.log("Data saved")
 }
 
 const loadData = function() {
   const storedData = JSON.parse(localStorage.getItem('data'))
-  hourData = storedData
-  if (storedData) {
-    for (let index in storedData) {
+  //if no data exists, don't try to load
+  if (!storedData) {return console.log("No data found");}
 
-    }
+  //update hourData object
+  hourData = storedData
+  for (let index in hourData) {
+    //parent container of element to be updated
+    let timeblockEl = containerEl.children()[index]
+    //element to be updated
+    let textareaEl = $(timeblockEl).find('textarea');
+    //text to update element
+    let text = hourData[index].text;
+    //update element
+    $(textareaEl).val(text);
   }
+
+  return console.log("Data loaded");
 }
 
 updateHourColors();
+loadData();
 
 //update hour colors every minute
 setInterval(updateHourColors, (1000*60));
