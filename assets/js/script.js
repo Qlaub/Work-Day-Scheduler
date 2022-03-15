@@ -13,11 +13,16 @@ const updateHours = function() {
   //our work day starts at 9am
   let workDayHour = 9;
   for (let i=0; i < textareaEls.length; i++) {
+    //updates hours past to class .past
     if (currentHour > workDayHour) {
       textareaEls[i].className = 'past';
-    } else if (currentHour < workDayHour) {
+    } 
+    //updates future hours to class .future
+    else if (currentHour < workDayHour) {
       textareaEls[i].className = 'future';
-    } else {
+    } 
+    //updates current hour to class .present
+    else {
       textareaEls[i].className = 'present';
     }
     workDayHour++;
