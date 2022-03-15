@@ -77,15 +77,16 @@ textarea {
   width: 10%;
 }
 
-.saveBtn i:hover {
-  font-size: 20px;
+.display-5 {
+  font-size: 30px;
+  transition: all .3s ease-in-out;
+}
+
+.saveBtn:hover .display-5 {
+  font-size: 38px;
   transition: all .3s ease-in-out;
 }
 
 #currentDay {
   height: 20px;
-}
-
-.display-5 {
-  font-size: 30px;
 }
